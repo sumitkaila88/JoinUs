@@ -1,0 +1,62 @@
+Users
+- id (PK)
+- name
+- email
+- password_hash
+- avatar_url
+- bio
+- created_at
+- updated_at
+
+Communities
+- id (PK)
+- name
+- description
+- location
+- created_by (FK -> Users.id)
+- created_at
+- updated_at
+
+CommunityMembers
+- id (PK)
+- user_id (FK -> Users.id)
+- community_id (FK -> Communities.id)
+- role (admin / member / moderator)
+- joined_at
+
+Posts
+- id (PK)
+- community_id (FK -> Communities.id)
+- user_id (FK -> Users.id)
+- content
+- media_url
+- created_at
+
+Comments
+- id (PK)
+- post_id (FK -> Posts.id)
+- user_id (FK -> Users.id)
+- content
+- created_at
+
+Events
+- id (PK)
+- community_id (FK -> Communities.id)
+- title
+- description
+- date
+- location
+- created_by (FK -> Users.id)
+
+Likes
+- id (PK)
+- user_id (FK -> Users.id)
+- post_id (FK -> Posts.id)
+
+Notifications
+- id (PK)
+- user_id (FK -> Users.id)
+- type (post, comment, like, event)
+- reference_id (post_id / comment_id / event_id)
+- created_at
+- is_read
