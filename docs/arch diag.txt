@@ -1,0 +1,45 @@
+[User Devices]
+    ↳ Mobile App (React Native + Expo)
+    ↳ Web Dashboard (Next.js)
+        |
+        v
+[API Layer / Backend]
+    • Node.js + Express (TypeScript)
+    • REST endpoints for Auth, Communities, Posts, Events, Payments
+    • WebSocket / Socket.io for real-time updates
+    • JWT based auth + middleware
+    • Payment integration (Stripe / Razorpay)
+        |
+        v
+[Data / Persistence Layer]
+    • MongoDB (Atlas or self-hosted)
+    • Optional Redis for caching or sessions (if needed)
+    • Storage for media assets (e.g., AWS S3)
+        |
+        v
+[Infrastructure & Services]
+    • Cloud Hosting (AWS / DigitalOcean / GCP etc.)
+    • CI/CD (GitHub Actions / CircleCI)
+    • Monitoring & Logging
+    • Push Notifications (Firebase Cloud Messaging or similar)
+
+
+Also include arrows showing flows like:
+
+User signs up / logs in → token issued
+
+User fetches communities / posts → REST API
+
+Real-time when new post or event in community → push via WebSockets or notifications
+
+Payment flow: user requests payment → server creates intent/order → user completes → webhook callback → update status
+
+And annotate tech stacks clearly, e.g.:
+
+“Mobile App: React Native + Expo + TypeScript”
+
+“Web Dashboard: Next.js + React”
+
+“Backend: Node.js + Express”
+
+“Database: MongoDB” etc
