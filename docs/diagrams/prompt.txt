@@ -1,0 +1,23 @@
+Build me a mobile-first MVP called **JoinUS** – a community-as-a-service app.
+
+Core Idea: A platform where users can discover, join, and engage with local or interest-based communities (free groups, events, paid clubs). Think Zomato + Reddit + Meetup + Telegram, but only for communities.
+
+MVP Features:
+- User onboarding (email/phone login, location access)
+- Discover communities (by city, interest, nearby groups)
+- Community pages (details, posts, events, members, join button)
+- Feed with updates from joined communities
+- Simple chat/announcement per community
+- Event listings (RSVP or paid via Razorpay/Stripe)
+- Community creation (basic tools for leaders)
+- Push notifications
+
+Tech Stack Preference (close to MERN):
+- Frontend: React Native + Expo + TypeScript
+- Backend: Node.js + Express + MongoDB (Atlas)
+- Auth: JWT + social login
+- Real-time: Socket.io
+- Payments: Razorpay (India) + Stripe (global)
+- Cloud storage: AWS S3 for media
+
+Keep the app **lightweight, modern, and geo-structured**. Deliver a working MVP that can be scaled later with ads, monetization tools, and a web dashboard.
