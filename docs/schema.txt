@@ -1,21 +1,32 @@
 Users
-- id (PK)
+- id (PK) (`Tanuj: Rename this field user_id. Do it for all the tables. Keep primary key as <tablename>_id format for better clarity.`)
 - name
-- email
+- email (`Tanuj: Are we considering this email as username? We should have phone number as well. Email or phone both should be used as username for login.`)
 - password_hash
 - avatar_url
 - bio
 - created_at
 - updated_at
+- status (active / inactive / banned / deleted) (`Tanuj: To manage user access. I have added new field here`)
 
 Communities
 - id (PK)
 - name
 - description
-- location
+- location (`Tanuj: Instead of just location lets keep it as below.
+address VARCHAR(255),
+street VARCHAR(255),
+city VARCHAR(100),
+state VARCHAR(100),
+country VARCHAR(100),
+postal_code VARCHAR(20),
+latitude DECIMAL(9,6),
+longitude DECIMAL(9,6)
+`)
 - created_by (FK -> Users.id)
 - created_at
 - updated_at
+- status (active / inactive / deleted) (`Tanuj: I have added new field here`)
 
 CommunityMembers
 - id (PK)
@@ -23,6 +34,13 @@ CommunityMembers
 - community_id (FK -> Communities.id)
 - role (admin / member / moderator)
 - joined_at
+- status (active / blocked / invited) (`Tanuj: I have added new field here`)
+- activated_at (`Tanuj: New field to track when user was activated`)
+- activated_by (FK -> Users.id) (`Tanuj: New field to track who activated the user`)
+- blocked_at (`Tanuj: New field to track when user was blocked`)
+- blocked_by (FK -> Users.id) (`Tanuj: New field to track who blocked the user`)
+- invited_at (`Tanuj: New field to track when user was invited`)
+- invited_by (FK -> Users.id) (`Tanuj: New field to track who invited the user`)
 
 Posts
 - id (PK)
@@ -31,22 +49,35 @@ Posts
 - content
 - media_url
 - created_at
+- status (active / deleted / inactive) (`Tanuj: I have added new field here`)
 
 Comments
 - id (PK)
 - post_id (FK -> Posts.id)
 - user_id (FK -> Users.id)
-- content
+- comment_text (`Tanuj: Changed field name from content to comment_text for better clarity`)
 - created_at
+- status (active / deleted / inactive) (`Tanuj: I have added new field here`)
 
 Events
 - id (PK)
 - community_id (FK -> Communities.id)
 - title
 - description
-- date
-- location
+- datetime (`Tanuj: Changed field name from date to datetime for better clarity`)
+- location (`Tanuj: Instead of just location lets keep it as below.
+address VARCHAR(255),
+street VARCHAR(255),
+city VARCHAR(100),
+state VARCHAR(100),
+country VARCHAR(100),
+postal_code VARCHAR(20),
+latitude DECIMAL(9,6),
+longitude DECIMAL(9,6)
+`)
 - created_by (FK -> Users.id)
+- status (upcoming / past / cancelled) (`Tanuj: I have added new field here`)
+- created_at (`Tanuj: Added created_at field for tracking event creation time`)
 
 Likes
 - id (PK)
